@@ -1,4 +1,4 @@
-{:paths [""]
+{:paths ["src"]
  :deps {org.clojure/clojure {:mvn/version "1.11.1"}
         babashka/fs {:mvn/version "0.1.4"}
         hashp/hashp {:mvn/version "0.2.1"}

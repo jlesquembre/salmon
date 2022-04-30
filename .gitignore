@@ -6,4 +6,5 @@
 .nrepl-port
 development/src/dev/
 gcroots
+result
 target/
