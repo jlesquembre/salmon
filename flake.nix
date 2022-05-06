@@ -28,6 +28,20 @@
             jdkRunner = pkgs.jdk17_headless;
           };
 
+          customJdk = cljpkgs.customJdk {
+            cljDrv = self.packages."${system}".salmon;
+            locales = "en";
+            name = "salmon";
+          };
+
+          jdkImage = pkgs.dockerTools.buildLayeredImage {
+            name = "salmon-jdk";
+            tag = "latest";
+            config = {
+              Cmd = clj-nix.lib.mkCljCli { jdkDrv = self.packages."${system}".customJdk; };
+            };
+          };
+
         };
       });
 
